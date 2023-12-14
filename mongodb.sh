@@ -28,3 +28,29 @@ if [ $USERID -ne 0 ]; then
     else 
     echo -e "$Y you are root user $N"
 fi
+
+cp /etc/yum.repos.d/mongo.repo/mongodb.repo &>> $LOG
+
+VALIDATE $? "copied mongodb repo "
+
+dnf install mongodb-org -y &>> $LOG
+
+VALIDATE $? "mongodb installed"
+
+systemctl enable mongod -y &>> $LOG
+
+VALIDATE $? "mongodb enabled"
+
+systemctl start mongod -y &>> $LOG
+
+VALIDATE $? "mongodb started"
+
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>> $LOG
+
+VALIDATE $? "remote access to mongodb"
+
+systemctl restart mongod &>> $LOG
+
+VALIDATE $? "mongodb restart'
+
+
