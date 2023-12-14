@@ -37,11 +37,11 @@ dnf install mongodb-org -y &>> $LOG
 
 VALIDATE $? "mongodb installed"
 
-systemctl enable mongod -y &>> $LOG
+systemctl enable mongod &>> $LOG
 
 VALIDATE $? "mongodb enabled"
 
-systemctl start mongod -y &>> $LOG
+systemctl start mongod  &>> $LOG
 
 VALIDATE $? "mongodb started"
 
