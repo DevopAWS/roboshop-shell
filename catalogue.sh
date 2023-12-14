@@ -45,7 +45,7 @@ VALIDATE $? "install nodejs:18"
 id roboshop
 if [ $? -ne 0 ];then
     useradd roboshop 
-    VALIDATE $?"robosop user creation"
+    VALIDATE $?"roboshop user creation"
     else
         echo -e "roboshop user aleready exists $Y Skipping $N"
 fi
@@ -55,7 +55,7 @@ VALIDATE $? "adding roboshop user"
 mkdir -p /app &>> $LOG
 VALIDATE $? "crete dirctory app"
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $LOG
+curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip  &>> $LOG
 VALIDATE $? "application download is"
 
 cd /app &>> $LOG
