@@ -51,6 +51,6 @@ VALIDATE $? "remote access to mongodb"
 
 systemctl restart mongod &>> $LOG
 
-VALIDATE $? "mongodb restart'
+VALIDATE $? "mongodb restart"
 
 
