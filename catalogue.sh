@@ -58,7 +58,7 @@ VALIDATE $? "unzip file is"
 npm install &>> $LOG
 VALIDATE $? "npm install is"
 
-cp catalogue.service /etc/systemd/system/catalogue.service &>> $LOG
+cp /home/centos/roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service &>> $LOG
 VALIDATE $? "copied catalogue service"
 
 systemctl daemon-reload &>> $LOG
@@ -70,6 +70,14 @@ VALIDATE $? "catalogue enabled"
 systemctl start catalogue &>> $LOG
 VALIDATE $? "catalogue start"
 
+cp /home/centos/roboshop-shell/mongodb.repo /etc/yum.repos.d/mongodb.repo &>> $LOG
+VALIDATE $? "copied mongodb repo"
+
+dnf install mongodb-org-shell -y &>> $LOG
+VALIDATE $? "install mongodb"
+
+mongo --host mongodb.daws76.online </app/schema/catalogue.js
+VALIDATE $? "connected mongodb"
 
 
 
