@@ -2,16 +2,18 @@
 
 USERID=$(id -u)
 
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
+Y="\e[33m"
+
 DATE=$(date +%F)
 
 LOG="/tmp/$0-$DATE.log"
 
 MONGODB_HOST=mongodb.daws76.online
 
-R="\e[31m"
-G="\e[32m"
-N="\e[0m"
-Y="\e[33m"
+
 
 
 VALIDATE(){
@@ -50,13 +52,11 @@ if [ $? -ne 0 ];then
         echo -e "roboshop user aleready exists $Y Skipping $N"
 fi
 
-VALIDATE $? "adding roboshop user"
-
 mkdir -p /app &>> $LOG
 VALIDATE $? "crete dirctory app"
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip  &>> $LOG
-VALIDATE $? "application download is"
+VALIDATE $? "downloading catalogue application"
 
 cd /app &>> $LOG
 VALIDATE $? "change app"
@@ -65,7 +65,7 @@ unzip -o /tmp/catalogue.zip &>> $LOG
 VALIDATE $? "unzip file is"
 
 npm install &>> $LOG
-VALIDATE $? "npm install is"
+VALIDATE $? "installing dependencies"
 
 cp /home/centos/roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service &>> $LOG
 VALIDATE $? "copied catalogue service"
