@@ -29,7 +29,7 @@ if [ $USERID -ne 0 ]; then
     echo -e "$Y you are root user $N"
 fi
 
-cp /etc/yum.repos.d/mongo.repo/mongodb.repo &>> $LOG
+cp mongodb.repo /etc/yum.repos.d/mongo.repo/mongodb.repo &>> $LOG
 
 VALIDATE $? "copied mongodb repo "
 
