@@ -1,12 +1,13 @@
 #!/bin/bash
 
-USERID=($id -u)
+ID=($id -u)
 
 TIMESTAMP=$(date +%F)
 
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
+Y="\e[33m"
 
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
 
@@ -21,7 +22,8 @@ VALIDATE() {
     fi
 }
 
-if [ $USERID -ne 0 ]; then
+
+if [ $ID -ne 0 ]; then
     echo -e "ERROR::$R script excuting with root user $N"
         exit 1
              else
