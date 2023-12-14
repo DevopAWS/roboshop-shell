@@ -76,8 +76,8 @@ VALIDATE $? "copied mongodb repo"
 dnf install mongodb-org-shell -y &>> $LOG
 VALIDATE $? "install mongodb"
 
-mongo --host mongodb.daws76.online </app/schema/catalogue.js
-VALIDATE $? "connected mongodb"
+mongo --host mongodb.daws76.online </app/schema/catalogue.js &>> $LOG
+VALIDATE $? "loading catalogue data into mangodb"
 
 
 
