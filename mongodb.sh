@@ -1,31 +1,30 @@
 #!/bin/bash
 
-ID=($id -u)
+USERID=$(id -u)
 
-TIMESTAMP=$(date +%F)
+DATE=$(date +%F)
+
+LOG="/tmp/$0-$DATE.log"
 
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
 Y="\e[33m"
 
-LOGFILE="/tmp/$0-$TIMESTAMP.log"
 
-echo "excuting scrpit start $TIMESTAMP"  &>> $LOGFILE
+VALIDATE(){
+if	[ $1 -ne 0 ];then
+	echo -e "$2.....${R} FAILURE ${N}" 
+	exit 1
+		else
+				echo -e "$2... ${G} SUCCESS ${N}" 
 
-VALIDATE() {
-    if [ $1 -ne 0 ]; then
-        echo -e "$2....$R FAILURE.. $N"
-            exit 1
-            else 
-                echo -e "$2....$G SUCCESS.. $N"
-    fi
+fi
 }
 
-
-if [ $ID -ne 0 ]; then
-    echo -e "ERROR::$R script excuting with root user $N"
-        exit 1
-             else
-                echo "yor are root user"
-    fi
+if [ $USERID -ne 0 ]; then
+	echo -e "${R} if you need to be root user excute this script ${N}"
+	exit 1
+    else 
+    echo -e "$Y you are root user $N"
+fi
