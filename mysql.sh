@@ -48,7 +48,6 @@ VALIDATE $? "start mysql"
 mysql_secure_installation --set-root-pass RoboShop@1 &>> $LOG
 VALIDATE $? "mysql secure install"
 
-mysql -uroot -pRoboShop@1 &>> $LOG
-VALIDATE $? "mysql user passwd"
+
 
 
