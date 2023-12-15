@@ -68,10 +68,10 @@ VALIDATE $? "copied user service"
 systemctl daemon-reload &>> $LOG
 VALIDATE $? "deamon reload"
 
-systemctl enable catalogue &>> $LOG
+systemctl enable user  &>> $LOG
 VALIDATE $? "catalogue enabled"
 
-systemctl start catalogue &>> $LOG
+systemctl start user &>> $LOG
 VALIDATE $? "catalogue start"
 
 cp mongodb.repo /etc/yum.repos.d/mongodb.repo &>> $LOG
