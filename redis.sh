@@ -37,7 +37,7 @@ VALIDATE $? "enable redis"
 dnf install redis -y &>> $LOG
 VALIDATE $? "install redis"
 
-sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis.conf &>> $LOG
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis/redis.conf &>> $LOG
 VALIDATE $? "remote access to redis"
 
 systemctl enable redis &>> $LOG
