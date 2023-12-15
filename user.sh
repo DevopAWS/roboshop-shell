@@ -69,12 +69,12 @@ systemctl daemon-reload &>> $LOG
 VALIDATE $? "deamon reload"
 
 systemctl enable user  &>> $LOG
-VALIDATE $? "catalogue enabled"
+VALIDATE $? "user enabled"
 
 systemctl start user &>> $LOG
-VALIDATE $? "catalogue start"
+VALIDATE $? "user start"
 
-cp mongodb.repo /etc/yum.repos.d/mongodb.repo &>> $LOG
+cp /home/centos/roboshop-shell/mongodb.repo /etc/yum.repos.d/mongodb.repo &>> $LOG
 VALIDATE $? "copied mongodb repo"
 
 dnf install mongodb-org-shell -y &>> $LOG
