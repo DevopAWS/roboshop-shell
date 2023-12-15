@@ -13,9 +13,6 @@ LOG="/tmp/$0-$DATE.log"
 
 MONGODB_HOST=mongodb.daws76.online
 
-
-
-
 VALIDATE(){
 if	[ $1 -ne 0 ];then
 	echo -e "$2.....${R} FAILURE ${N}" 
@@ -33,10 +30,8 @@ if [ $USERID -ne 0 ]; then
     echo -e "$Y you are root user $N"
 fi
 
-
 dnf module disable nodejs -y &>> $LOG
 VALIDATE $? "disable nodejs"
-
 
 dnf module enable nodejs:18 -y &>> $LOG
 VALIDATE $? "enable nodejs 18"
