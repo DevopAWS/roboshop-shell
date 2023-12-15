@@ -43,6 +43,9 @@ VALIDATE $? "remote access to redis"
 systemctl enable redis &>> $LOG
 VALIDATE $? "enable redis"
 
+systemctl restart redis &>> $LOG
+VALIDATE $? "restart redis"
+
 systemctl start redis &>> $LOG
 VALIDATE $? "start redis"
 
