@@ -50,7 +50,7 @@ fi
 mkdir -p /app &>> $LOG
 VALIDATE $? "crete dirctory app"
 
-curl -L -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip &>> &LOG
+curl -L -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip  &>> $LOG
 VALIDATE $? "installing cart repo"
 
 cd /app &>> $LOG
