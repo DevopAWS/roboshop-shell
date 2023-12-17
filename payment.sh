@@ -36,7 +36,7 @@ VALIDATE $? "install python"
 id roboshop
 if [ $? -ne 0 ];then
     useradd roboshop 
-    VALIDATE $?"roboshop user creation"
+    VALIDATE $? "roboshop user creation"
     else
         echo -e "roboshop user aleready exists $Y Skipping $N"
 fi
