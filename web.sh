@@ -48,7 +48,7 @@ VALIDATE $? "change user html"
 unzip /tmp/web.zip &>>$LOG
 VALIDATE $? "unzip web"
 
-cp roboshop.conf /etc/nginx/default.d/roboshop.conf &>>$LOG
+cp /home/centos/roboshop-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf &>>$LOG
 VALIDATE $? "copied roboshopconf"
 
 systemctl restart nginx &>>$LOG
