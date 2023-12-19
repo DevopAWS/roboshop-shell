@@ -28,7 +28,7 @@ aws route53 change-resource-record-sets \
         "Action"              : "CREATE"
         ,"ResourceRecordSet"  : {
             "Name"              : "'$i'.'$DOMAIN_NAME'"
-            ,"Type"             : A
+            ,"Type"             : "A"
             ,"TTL"              : 1
             ,"ResourceRecords"  : [{
                 "Value"         : "'$IP_ADDRESS'"
