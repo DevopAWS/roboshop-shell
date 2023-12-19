@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#AMI-ID=ami-03265a0778a880afb
-#SG-ID=sg-039cc2fb5a7846012
-INSTANCES=("mongodb","mysql","rabbitmq","catalogue","user","cart","reddis","shipping","payment","web")
+AMI-ID=ami-03265a0778a880afb
+SG-ID=sg-039cc2fb5a7846012
+INSTANCES=("mongodb" "mysql" "rabbitmq" "catalogue" "user" "cart" "reddis" "shipping" "payment" "web")
 
 for i in "${INSTANCES[@]}"
 do 
