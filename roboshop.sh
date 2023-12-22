@@ -17,6 +17,7 @@ do
     fi
 
     IP_ADDRESS=$(aws ec2 run-instances --image-id ami-03265a0778a880afb  --instance-type $INSTANCES_TYPE --security-group-ids sg-039cc2fb5a7846012 --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" --query 'Instances[0].PrivateIpAddress' --output text)
+    
     echo "$i: $IP_ADDRESS"
 
 aws route53 change-resource-record-sets \
